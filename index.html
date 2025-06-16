@@ -77,4 +77,50 @@
       top: 10px;
       right: 15px;
       font-size: 24px;
-      font-weight
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>내 구급상자</h1>
+
+  <div class="kit">
+    <img src="박백도 구급함 전체.png" alt="구급상자 이미지" />
+    <div class="button-group">
+      <button onclick="showModal('1.jpg')">자세히 보기</button>
+      <button onclick="showModal('2.jpg')">자세히 보기</button>
+      <button onclick="showModal('3.jpg')">자세히 보기</button>
+    </div>
+  </div>
+
+  <!-- 모달 창 -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="상세 이미지" />
+    </div>
+  </div>
+
+  <script>
+    function showModal(imagePath) {
+      document.getElementById("modalImage").src = imagePath;
+      document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+      document.getElementById("modalImage").src = "";
+    }
+
+    // 모달 외부 클릭 시 닫기
+    window.onclick = function(event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
