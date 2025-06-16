@@ -9,16 +9,22 @@
       font-family: sans-serif;
       text-align: center;
       background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
     }
+
     .kit {
       position: relative;
       display: inline-block;
+      margin-top: 30px;
     }
+
     .kit img {
       width: 100%;
       max-width: 500px;
       height: auto;
     }
+
     .button-group {
       position: absolute;
       top: 65%;
@@ -27,50 +33,48 @@
       display: flex;
       justify-content: space-between;
     }
+
     .button-group button {
-      background-color: #1976d2;
-      color: white;
-      border: none;
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #000;
+      border: 1px solid #ccc;
       padding: 6px 12px;
       font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
     }
-    .details {
-      margin-top: 30px;
-    }
-    .details img {
-      width: 300px;
-      height: auto;
+
+    /* 모달 스타일 */
+    .modal {
       display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
     }
-  </style>
-</head>
-<body>
-  <h1>내 구급상자</h1>
 
-  <div class="kit">
-    <img src="박백도 구급함 전체.png" alt="구급상자 이미지" />
-    <div class="button-group">
-      <button onclick="showImage('sleep')">수면제 자세히 보기</button>
-      <button onclick="showImage('diarrhea')">설사약 자세히 보기</button>
-      <button onclick="showImage('band')">반창고 자세히 보기</button>
-    </div>
-  </div>
-
-  <div class="details">
-    <img id="sleep" src="1.jpg" alt="수면제 상세" />
-    <img id="diarrhea" src="2.jpg" alt="설사약 상세" />
-    <img id="band" src="3.jpg" alt="반창고 상세" />
-  </div>
-
-  <script>
-    function showImage(id) {
-      document.querySelectorAll(".details img").forEach(img => {
-        img.style.display = "none";
-      });
-      document.getElementById(id).style.display = "block";
+    .modal-content {
+      margin: 10% auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
     }
-  </script>
-</body>
-</html>
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight
